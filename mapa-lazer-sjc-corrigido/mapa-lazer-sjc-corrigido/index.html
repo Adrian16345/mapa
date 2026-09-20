@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mapa interativo de lazer gratuito em São José dos Campos">
+  <title>Lazer SJC | Mapa de entretenimento público</title>
+
+  <!-- Leaflet: biblioteca responsável pelo mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- Estilos do projeto -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+      <span class="etiqueta">Atividade Extensionista II • ADS</span>
+      <h1>Mapa de entretenimento público em São José dos Campos</h1>
+      <p>
+        Encontre parques e espaços gratuitos de lazer, consulte as atividades
+        disponíveis e visualize cada local no mapa.
+      </p>
+      <a class="botao botao--claro" href="#explorar">Explorar locais</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="secao container" id="explorar">
+      <div class="titulo-secao">
+        <div>
+          <span class="etiqueta etiqueta--verde">Explorar</span>
+          <h2>Locais de lazer</h2>
+        </div>
+        <p id="status" class="status" aria-live="polite"></p>
+      </div>
+
+      <div class="filtros">
+        <label class="campo">
+          <span>Pesquisar</span>
+          <input id="pesquisa" type="search" placeholder="Ex.: caminhada, parque, skate">
+        </label>
+
+        <label class="campo">
+          <span>Atividade</span>
+          <select id="filtroAtividade">
+            <option value="todos">Todas as atividades</option>
+          </select>
+        </label>
+
+        <button id="limparFiltros" class="botao botao--secundario" type="button">
+          Limpar filtros
+        </button>
+      </div>
+
+      <div class="conteudo-principal">
+        <aside class="painel-locais" aria-label="Lista de locais">
+          <div id="listaLocais" class="lista-locais"></div>
+        </aside>
+
+        <div class="mapa-container">
+          <div id="mapa" aria-label="Mapa interativo de São José dos Campos"></div>
+          <button id="verTodos" class="botao-mapa" type="button">Ver todos</button>
+        </div>
+      </div>
+
+      <div id="avisoMapa" class="aviso" hidden>
+        Não foi possível carregar o mapa. Verifique sua conexão com a internet.
+      </div>
+    </section>
+
+    <section class="sobre">
+      <div class="container sobre__conteudo">
+        <span class="etiqueta etiqueta--verde">Sobre o projeto</span>
+        <h2>Tecnologia aplicada à comunidade</h2>
+        <p>
+          O projeto utiliza HTML para estruturar a página, CSS para a apresentação
+          visual, JavaScript para a interatividade, Leaflet para os recursos
+          cartográficos e OpenStreetMap como base do mapa.
+        </p>
+
+        <div class="tecnologias" aria-label="Tecnologias utilizadas">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>Leaflet</span>
+          <span>OpenStreetMap</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__conteudo">
+      <p>Projeto acadêmico • Análise e Desenvolvimento de Sistemas</p>
+      <p>© <span id="ano"></span> • São José dos Campos - SP</p>
+    </div>
+  </footer>
+
+  <!-- A ordem é importante: Leaflet -> dados -> aplicação -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./js/locais.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
